@@ -59,6 +59,7 @@ DashPlatform.prototype.didFinishLaunching = function() {
       self.log("detected button press");
       var accessory = self.accessories[dash_id];
       if (accessory) {
+        self.log("accessory found to fire event");
         self.dashEventWithAccessory(accessory);
       }
     });
@@ -71,6 +72,7 @@ DashPlatform.prototype.dashEventWithAccessory = function(accessory) {
     .getCharacteristic(Characteristic.ProgrammableSwitchEvent);
 
   targetChar.setValue(0);
+  this.log("dash setValue 0");
 }
 
 DashPlatform.prototype.addAccessory = function(mac, name) {
