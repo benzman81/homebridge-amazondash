@@ -56,6 +56,7 @@ DashPlatform.prototype.didFinishLaunching = function() {
   if (registedMACs.length > 0) {
     self.dash = dash_button(registedMACs);
     self.dash.on('detected', function(dash_id) {
+      self.log("detected button press");
       var accessory = self.accessories[dash_id];
       if (accessory) {
         self.dashEventWithAccessory(accessory);
